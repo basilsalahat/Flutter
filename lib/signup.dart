@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:project/contactInfo.dart';
+import 'package:project/selectedHouse.dart';
 import 'main.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'add.dart';
-import 'package:image_picker/image_picker.dart';
 
+enum type { Sell, Buy }
 
 class signup extends StatelessWidget {
   const signup({Key? key}) : super(key: key);
@@ -15,13 +14,10 @@ class signup extends StatelessWidget {
       body: SingleChildScrollView(
         child:
         Container(
+          width: MediaQuery.of(context).size.width,
           color: Color.fromRGBO(249, 249, 251, 1),
           child: Padding(
-            padding: EdgeInsets.fromLTRB(
-                MediaQuery.of(context).size.height * 0.05,
-                MediaQuery.of(context).size.height * 0.1,
-                MediaQuery.of(context).size.height * 0.05, 0
-            ),
+            padding: EdgeInsets.only(top: 60,bottom: 60,left: 25,right: 25),
             child: Column(
               children: [
 
@@ -46,7 +42,7 @@ class signup extends StatelessWidget {
           // Navigator.pop(context);
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const add()),
+            MaterialPageRoute(builder: (context) => const selectedHouse()),
           );
         },
         child: Icon(Icons.arrow_back_outlined),
@@ -74,6 +70,8 @@ class _formsignupState extends State<formsignup> {
   TextEditingController _mobileNumber = TextEditingController();
 
   final _formKey2 = GlobalKey<FormState>();
+
+  String? accountType = "";
 
   Widget build(BuildContext context) {
     return Form(
@@ -234,34 +232,37 @@ class _formsignupState extends State<formsignup> {
                   return null;
                 }
             ),
-            SizedBox(height: 40,),
+            Divider(
+              color: Color.fromRGBO(0, 0, 0, 0),
+            ),
 
+            accounttype(),
+            
             butt(context, "Login", () {
               _fullName.clear();
               _email.clear();
               _pass.clear();
               _mobileNumber.clear();
             }, _formKey2),
-            SizedBox(height: 60,),
             Center(
               child: RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
-                  text: "By using the app, you agree to the ",
+                  text: "By using the app, you agree to \n the ",
                     style: GoogleFonts.manrope(
-                        fontSize: 14,
+                        fontSize: 16,
                         fontWeight: FontWeight.w500,
                         color: Color.fromRGBO(70, 70, 70, 1)
                     ),
                     children: [
                     TextSpan(text: "Terms of use", style: GoogleFonts.manrope(
-                        fontSize: 14,
+                        fontSize: 16,
                         fontWeight: FontWeight.w800,
                         color: Color.fromRGBO(76, 159, 193, 1)
                     )),
                     TextSpan(text: " and "),
                     TextSpan(text: "Privacy Policy", style: GoogleFonts.manrope(
-                        fontSize: 14,
+                        fontSize: 16,
                         fontWeight: FontWeight.w800,
                         color: Color.fromRGBO(76, 159, 193, 1)
                     ))
@@ -269,11 +270,63 @@ class _formsignupState extends State<formsignup> {
                 ),
               ),
             ),
-            SizedBox(height: 40,),
           ],
 
         )
     );
   }
 }
+
+class accounttype extends StatefulWidget {
+  const accounttype({Key? key}) : super(key: key);
+
+  @override
+  State<accounttype> createState() => _accounttypeState();
+}
+
+class _accounttypeState extends State<accounttype> {
+
+  type? _type = type.Sell;
+
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Center(
+          child: Text("Account Purpose",style: GoogleFonts.manrope(
+              fontSize: 18,
+              fontWeight: FontWeight.w600
+          ),),
+        ),
+        RadioListTile<type>(
+          title:  Text('Sell', style: GoogleFonts.manrope(
+              fontSize: 16,
+              fontWeight: FontWeight.w600
+          ),),
+          value: type.Sell,
+          groupValue: _type,
+          onChanged: (type? value) {
+            setState(() {
+              _type = value;
+            });
+          },
+        ),
+        RadioListTile<type>(
+          title:  Text('Rent',style: GoogleFonts.manrope(
+              fontSize: 16,
+              fontWeight: FontWeight.w600
+          ),),
+          value: type.Buy,
+          groupValue: _type,
+          onChanged: (type? value) {
+            setState(() {
+              _type = value;
+            });
+          },
+        ),
+
+      ],
+    );
+  }
+}
+
 

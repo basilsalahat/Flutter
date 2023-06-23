@@ -6,6 +6,7 @@ import 'package:project/signin.dart';
 
 void main(){
   runApp(MyApp());
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
 }
 
 class MyApp extends StatelessWidget {

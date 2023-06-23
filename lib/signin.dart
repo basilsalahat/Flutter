@@ -23,13 +23,11 @@ class _SigninState extends State<Signin> {
         Container(
           color:Color.fromRGBO(249, 249, 251, 1),
           width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
           child: Padding(
-            padding: EdgeInsets.fromLTRB(
-                MediaQuery.of(context).size.height * 0.05,
-                MediaQuery.of(context).size.height * 0.1,
-                MediaQuery.of(context).size.height * 0.05, 0
-            ),
+            padding: EdgeInsets.only(top: 60,left: 25,right: 25,bottom: 60),
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
                   child: Text("iHouse",
@@ -43,11 +41,11 @@ class _SigninState extends State<Signin> {
                 Image.asset(
                   "imgs/lock.png",
                   fit: BoxFit.cover,
+                  width: 250,
                 ),
                 SizedBox(height: 40,),
                 formm(),
                 signUpOption(),
-                SizedBox(height: 50,),
               ],
             ),
           ),
@@ -64,7 +62,7 @@ class _SigninState extends State<Signin> {
         GestureDetector(
           onTap: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => contactInfo()));
+                context, MaterialPageRoute(builder: (context) => signup()));
           },
           child: Text(
             "Create New Account",
@@ -182,7 +180,6 @@ class _formmState extends State<formm> {
               _email.clear();
               _pass.clear();
             }, _formKey1,),
-            SizedBox(height: 20,)
           ],
         )
     );
