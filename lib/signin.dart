@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:project/contactInfo.dart';
 import 'signup.dart';
 import 'main.dart';
 
@@ -25,15 +24,16 @@ class _SigninState extends State<Signin> {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: Padding(
-            padding: EdgeInsets.only(top: 60,left: 25,right: 25,bottom: 60),
+            padding: EdgeInsets.only(top: 60,left: 35,right: 35,bottom: 60),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Container(
                   child: Text("iHouse",
                     style: GoogleFonts.manrope(
-                      fontSize: 20,
+                      fontSize: 18,
                       fontWeight: FontWeight.w500,
+                      color: Color.fromRGBO(163, 163, 163, 1)
                     ),
                   ),
                 ),
@@ -41,7 +41,7 @@ class _SigninState extends State<Signin> {
                 Image.asset(
                   "imgs/lock.png",
                   fit: BoxFit.cover,
-                  width: 250,
+                  width: 230,
                 ),
                 SizedBox(height: 40,),
                 formm(),
@@ -67,8 +67,9 @@ class _SigninState extends State<Signin> {
           child: Text(
             "Create New Account",
            style: GoogleFonts.manrope(
-               fontSize: 16,
-               fontWeight: FontWeight.w600
+               fontSize: 18,
+               fontWeight: FontWeight.w600,
+             color: Color.fromRGBO(62, 62, 62, 1)
            ),
           ),
 
@@ -104,7 +105,7 @@ class _formmState extends State<formm> {
               controller: _email,
               obscureText: false,
               style: GoogleFonts.manrope(
-                fontSize: 16,
+                fontSize: 18,
                 fontWeight: FontWeight.w600
               ),
               decoration: InputDecoration(
@@ -116,7 +117,7 @@ class _formmState extends State<formm> {
                 filled: true,
                 fillColor: Color.fromRGBO(255, 255, 255, 1),
                 labelStyle: GoogleFonts.manrope(
-                  fontSize: 16,
+                  fontSize: 18,
                   fontWeight: FontWeight.w600,
                   color: Color.fromRGBO(202, 202, 202, 1)
               ),
@@ -142,7 +143,7 @@ class _formmState extends State<formm> {
               controller: _pass,
               obscureText: true,
               style: GoogleFonts.manrope(
-                  fontSize: 16,
+                  fontSize: 18,
                   fontWeight: FontWeight.w600
               ),
               decoration: InputDecoration(
@@ -154,7 +155,7 @@ class _formmState extends State<formm> {
                   filled: true,
                   fillColor: Color.fromRGBO(255, 255, 255, 1),
                   labelStyle: GoogleFonts.manrope(
-                      fontSize: 16,
+                      fontSize: 18,
                       fontWeight: FontWeight.w600,
                     color: Color.fromRGBO(202, 202, 202, 1)
                   ),

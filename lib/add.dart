@@ -16,18 +16,14 @@ class add extends StatelessWidget {
         Container(
           color: Color.fromRGBO(249, 249, 251, 1),
           child: Padding(
-            padding: EdgeInsets.fromLTRB(
-                MediaQuery.of(context).size.height * 0.05,
-                MediaQuery.of(context).size.height * 0.1,
-                MediaQuery.of(context).size.height * 0.05, 0
-            ),
+            padding: EdgeInsets.only(top: 60,bottom: 60,left: 35,right: 35),
             child: Column(
               children: [
 
                 Container(
                   child: Text("Add new house",
                     style: GoogleFonts.manrope(
-                     fontSize: 20,
+                     fontSize: 18,
                      fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -81,7 +77,7 @@ class _formaddState extends State<formadd> {
                 controller: _houseName,
                 obscureText: false,
                 style: GoogleFonts.manrope(
-                    fontSize: 16,
+                    fontSize: 18,
                     fontWeight: FontWeight.w500
                 ),
                 decoration: InputDecoration(
@@ -94,7 +90,7 @@ class _formaddState extends State<formadd> {
                     fillColor: Color.fromRGBO(255, 255, 255, 1),
                     labelStyle: GoogleFonts.manrope(
                       color: Color.fromRGBO(202, 202, 202, 1),
-                        fontSize: 16,
+                        fontSize: 18,
                         fontWeight: FontWeight.w500
                     ),
                     floatingLabelBehavior: FloatingLabelBehavior.never,
@@ -126,7 +122,7 @@ class _formaddState extends State<formadd> {
                 obscureText: false,
                 keyboardType: TextInputType.number,
                 style: GoogleFonts.manrope(
-                    fontSize: 16,
+                    fontSize: 18,
                     fontWeight: FontWeight.w500
                 ),
                 decoration: InputDecoration(
@@ -139,7 +135,7 @@ class _formaddState extends State<formadd> {
                     fillColor: Color.fromRGBO(255, 255, 255, 1),
                     labelStyle: GoogleFonts.manrope(
                         color:Color.fromRGBO(202, 202, 202, 1),
-                        fontSize: 16,
+                        fontSize: 18,
                         fontWeight: FontWeight.w500
                     ),
                     floatingLabelBehavior: FloatingLabelBehavior.never,
@@ -185,7 +181,7 @@ class _formaddState extends State<formadd> {
                     fillColor: Color.fromRGBO(255, 255, 255, 1),
                     labelStyle: GoogleFonts.manrope(
                         color: Color.fromRGBO(202, 202, 202, 1),
-                        fontSize: 16,
+                        fontSize: 18,
                         fontWeight: FontWeight.w500
                     ),
                     floatingLabelBehavior: FloatingLabelBehavior.never,
@@ -274,7 +270,7 @@ class _formaddState extends State<formadd> {
                 ),
                 style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12)),
+                        borderRadius: BorderRadius.circular(16)),
                     backgroundColor: Color.fromRGBO(76, 159, 193, 1)
                 ),
               ),

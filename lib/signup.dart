@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project/selectedHouse.dart';
+import 'package:project/sellerHomePage.dart';
+import 'customerHomePage.dart';
 import 'main.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -17,14 +19,15 @@ class signup extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           color: Color.fromRGBO(249, 249, 251, 1),
           child: Padding(
-            padding: EdgeInsets.only(top: 60,bottom: 60,left: 25,right: 25),
+            padding: EdgeInsets.only(top: 60,bottom: 60,left: 35,right: 35),
             child: Column(
               children: [
-
                 Container(
                   child: Text("iHouse.com",
-                    style: TextStyle(
-                        fontSize: 18
+                    style: GoogleFonts.manrope(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        color: Color.fromRGBO(163, 163, 163, 1)
                     ),
                   ),
                 ),
@@ -42,7 +45,7 @@ class signup extends StatelessWidget {
           // Navigator.pop(context);
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => const selectedHouse()),
+            MaterialPageRoute(builder: (context) => const sellerHomePage()),
           );
         },
         child: Icon(Icons.arrow_back_outlined),
@@ -83,7 +86,7 @@ class _formsignupState extends State<formsignup> {
                 obscureText: false,
                 style: GoogleFonts.manrope(
                     fontSize: 16,
-                    fontWeight: FontWeight.w600
+                    fontWeight: FontWeight.w600,
                 ),
                 decoration: InputDecoration(
                     prefixIcon: Icon(
@@ -294,14 +297,16 @@ class _accounttypeState extends State<accounttype> {
         Center(
           child: Text("Account Purpose",style: GoogleFonts.manrope(
               fontSize: 18,
-              fontWeight: FontWeight.w600
+              fontWeight: FontWeight.w600,
+              color:Colors.black54
           ),),
         ),
         RadioListTile<type>(
           title:  Text('Sell', style: GoogleFonts.manrope(
-              fontSize: 16,
-              fontWeight: FontWeight.w600
-          ),),
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+                color:Colors.black54
+                ),),
           value: type.Sell,
           groupValue: _type,
           onChanged: (type? value) {
@@ -312,8 +317,9 @@ class _accounttypeState extends State<accounttype> {
         ),
         RadioListTile<type>(
           title:  Text('Rent',style: GoogleFonts.manrope(
-              fontSize: 16,
-              fontWeight: FontWeight.w600
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+              color:Colors.black54
           ),),
           value: type.Buy,
           groupValue: _type,
@@ -323,7 +329,6 @@ class _accounttypeState extends State<accounttype> {
             });
           },
         ),
-
       ],
     );
   }

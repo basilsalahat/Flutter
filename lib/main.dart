@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/services.dart';
 import 'package:project/signin.dart';
+import 'package:project/testPage.dart';
 
 
 void main(){
@@ -53,7 +54,7 @@ class _welcomePageDesignState extends State<welcomePageDesign> {
               Container(
                   padding: EdgeInsets.all(36),
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(24),
+                      borderRadius: BorderRadius.circular(32),
                       color: Color.fromRGBO(255, 255, 255, 1)
                   ),
                   child: SizedBox(
@@ -93,14 +94,14 @@ class _welcomePageDesignState extends State<welcomePageDesign> {
                                     onPressed: (){
                                       Navigator.push(
                                         context,
-                                        MaterialPageRoute(builder: (context) => const Signin()),
+                                        MaterialPageRoute(builder: (context) => const testPage()),
                                       );
                                     },
                                     style: ElevatedButton.styleFrom(
                                         backgroundColor: Color.fromRGBO(76, 159, 193, 1),
                                         padding: EdgeInsets.only(top:15,left: 45,right: 45,bottom: 15),
                                         shape: RoundedRectangleBorder(
-                                            borderRadius: BorderRadius.circular(12))
+                                            borderRadius: BorderRadius.circular(16))
                                     ),
                                   )
                               ))]),
@@ -134,7 +135,7 @@ Container butt(BuildContext context, String title, Function onTap, final key) {
       ),
       style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(12)),
+              borderRadius: BorderRadius.circular(16)),
           backgroundColor: Color.fromRGBO(76, 159, 193, 1)
       ),
     ),
