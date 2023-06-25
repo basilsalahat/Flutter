@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:project/selectedHouse.dart';
 import 'package:project/sellerHomePage.dart';
 import 'customerHomePage.dart';
 import 'main.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+
 
 enum type { Sell, Buy }
 
 class signup extends StatelessWidget {
   const signup({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +45,8 @@ class signup extends StatelessWidget {
       ),
       floatingActionButton:FloatingActionButton(
         onPressed: (){
+          onPressed:
+
           // Navigator.pop(context);
           Navigator.push(
             context,
@@ -58,7 +63,10 @@ class signup extends StatelessWidget {
 
 
 
+final FirebaseAuth _auth = FirebaseAuth.instance;
+
 class formsignup extends StatefulWidget {
+
   const formsignup({Key? key}) : super(key: key);
 
   @override
@@ -238,10 +246,29 @@ class _formsignupState extends State<formsignup> {
             Divider(
               color: Color.fromRGBO(0, 0, 0, 0),
             ),
-
-            accounttype(),
-            
-            butt(context, "Login", () {
+            SizedBox(height: 50,),
+            ElevatedButton(
+                onPressed: (){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const customerHomePage()),
+                  );
+                },
+                child: Text(
+                  "Use as a Guest",
+                    style: GoogleFonts.manrope(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600
+                    )
+                ),
+                style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16)),
+                    backgroundColor: Color.fromRGBO(76, 159, 193, 1)
+                )
+            ),
+            SizedBox(height: 50,),
+            butt(context, "Sign Up", () {
               _fullName.clear();
               _email.clear();
               _pass.clear();
@@ -279,59 +306,3 @@ class _formsignupState extends State<formsignup> {
     );
   }
 }
-
-class accounttype extends StatefulWidget {
-  const accounttype({Key? key}) : super(key: key);
-
-  @override
-  State<accounttype> createState() => _accounttypeState();
-}
-
-class _accounttypeState extends State<accounttype> {
-
-  type? _type = type.Sell;
-
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Center(
-          child: Text("Account Purpose",style: GoogleFonts.manrope(
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-              color:Colors.black54
-          ),),
-        ),
-        RadioListTile<type>(
-          title:  Text('Sell', style: GoogleFonts.manrope(
-                fontSize: 18,
-                fontWeight: FontWeight.w500,
-                color:Colors.black54
-                ),),
-          value: type.Sell,
-          groupValue: _type,
-          onChanged: (type? value) {
-            setState(() {
-              _type = value;
-            });
-          },
-        ),
-        RadioListTile<type>(
-          title:  Text('Rent',style: GoogleFonts.manrope(
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-              color:Colors.black54
-          ),),
-          value: type.Buy,
-          groupValue: _type,
-          onChanged: (type? value) {
-            setState(() {
-              _type = value;
-            });
-          },
-        ),
-      ],
-    );
-  }
-}
-
-

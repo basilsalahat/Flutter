@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/services.dart';
 import 'package:project/signin.dart';
-import 'package:project/testPage.dart';
 
 
 void main(){
@@ -94,7 +93,7 @@ class _welcomePageDesignState extends State<welcomePageDesign> {
                                     onPressed: (){
                                       Navigator.push(
                                         context,
-                                        MaterialPageRoute(builder: (context) => const testPage()),
+                                        MaterialPageRoute(builder: (context) => const Signin()),
                                       );
                                     },
                                     style: ElevatedButton.styleFrom(

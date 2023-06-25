@@ -37,7 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   google_fonts: ^5.1.0
   image_picker: ^0.8.9
-  flutter_sticky_widgets: ^0.0.3
+  firebase_auth: ^4.6.3
+
 
 dev_dependencies:
   flutter_test:
